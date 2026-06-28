@@ -1,50 +1,52 @@
-# ERPCalc++ 🚀
+# ERPCalc 🚀
 
-**ERPCalc++** is a high-performance, lightweight Enterprise Resource Planning (ERP) manufacturing calculator written in pure, hardcore C++ utilizing the **Dear ImGui** graphical framework. Designed with absolute efficiency in mind, this software provides real-time computational analysis of manufacturing timelines based on construction materials, personnel allocation, shift durations, and operational efficiency metrics.
+**ERPCalc** is a high-performance, lightweight Enterprise Resource Planning (ERP) manufacturing calculator built with **Python**, powered by **NumPy** for ultra-fast matrix calculations, and backed by **MongoDB** for flexible data persistence. Featuring a sleek, modern desktop interface built with **CustomTkinter**, this software provides real-time computational analysis of manufacturing timelines based on extensive construction materials and industrial workforce variables.
 
 ---
 
 ## 🔥 Key Features
 
-- **Hardware-Level Performance (Hardcore C++):** Zero runtime overhead. Complex computations over large datasets execute at bare-metal speeds.
-- **Modern & Lightweight GUI:** Powered by **Dear ImGui** (with GLFW + OpenGL3 backend) for an engineered, ultra-responsive, zero-latency user experience.
-- **Standalone Portability (Single `.exe`):** Compiles cleanly into a single independent binary file with zero external dynamic link library (`.dll`) dependencies. Fully portable for instant production deployment.
-- **Proudly Open-Source:** Shared with the global developer community to demonstrate structural architecture, manual memory management optimization, and robust GUI workflows in C++.
+- **Blazing Fast Calculations:** Heavy mathematical scheduling and timeline evaluations are handled by **NumPy**, executing data operations at native-C speeds under the hood.
+- **Modern & Fluid UI:** Powered by **CustomTkinter** for a polished, dark-themed, and responsive user experience out of the box.
+- **Flexible Document Database:** Leverages **MongoDB** to handle complex, dynamic schemas, allowing real-time adjustments to materials, workforce logs, and job constraints without touching the source code.
+- **Proudly Open-Source:** Shared with the global developer community to showcase clean Python architecture, NoSQL integration, and data-driven desktop app workflows.
 
 ---
 
 ## 📋 Technical Specification & Business Logic
 
-### 1. Data Structures (`struct`)
-The core application state operates around two critical architectural entities:
+### 1. Data Models (MongoDB Collections)
+The core application state maps dynamic parameters into flexible document models:
 
-* **Materials & Production Processes (`struct Material`)**
-  - `std::string name` — Name of the production task (e.g., *Bricklaying, Concrete Pouring*).
-  - `double volumeNeeded` — Total physical workload required (measured in $m^3$, $m^2$, or units).
-  - `double speedPerUnit` — Standard time metric required to process a single unit of material.
+* **Materials & Production Pipelines (`Materials Collection`)**
+  - `name` (String) — Name of the production task (e.g., *Bricklaying, Concrete Pouring*).
+  - `volume_needed` (Float) — Total physical workload required ($m^3$, $m^2$, or specific units).
+  - `speed_per_unit` (Float) — Baseline time metric needed to process a single unit of material.
+  - `technological_delay` (Float) — Built-in waiting phases (e.g., hours required for concrete curing).
 
-* **Workforce & Labor Management (`struct WorkForce`)**
-  - `int workersCount` — Number of active workers assigned to the specific crew.
-  - `double efficiency` — Team performance multiplier (e.g., `1.0` for standard baseline, `1.2` for high-velocity output).
-  - `double shiftHours` — Actual operational working hours per shift (e.g., 8 hours/day).
+* **Workforce & Labor Allocations (`Workforce Collection`)**
+  - `workers_count` (Integer) — Total active crew members on site.
+  - `efficiency_multiplier` (Float) — Team performance index based on active industrial scaling constraints.
+  - `shift_duration` (Float) — Operational working hours per individual shift.
 
 ### 2. Core Mathematical Engine
-*The definitive calculation formulas and technical constraints are currently undergoing final alignment with the Lead Project Stakeholder and will be hardcoded upon verification.*
+*The definitive calculation formulas, scaling parameters, and specific material metrics are currently undergoing final alignment with the Lead Project Stakeholder (Dad) 👨‍👦 and will be fully integrated using NumPy arrays upon verification.*
 
 ### 3. UI/UX Requirements
-- [ ] **Dynamic Data Table:** Live tracking of available construction assets, active pipelines, and raw material throughput.
-- [ ] **Intuitive Forms:** Instant runtime entry and structural updates for labor forces and resource constraints.
-- [ ] **One-Click Execution:** Real-time evaluation button rendering instant scheduling insights.
-- [ ] **Analytical Verdict Panel:** Clean display of final manufacturing deadlines broken down precisely into Days and Hours.
+- [ ] **Modern Dashboard:** Interactive tables utilizing CustomTkinter components for monitoring asset pipelines and material status.
+- [ ] **Dynamic Forms:** Easy runtime data entry fields to update material indices, labor size, and timeline limits instantly.
+- [ ] **One-Click Calculation:** Quick trigger for computing heavy matrix formulas and updating the active UI view.
+- [ ] **Analytical Verdict Panel:** Clean visual output display breaking down exact delivery deadlines into Days and Hours.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Language:** Standard C++ (C++17 / C++20 ISO Standard)
-- **GUI Framework:** [Dear ImGui](https://github.com/ocornut/imgui) (Immediate Mode Graphical User Interface)
-- **Windowing & Rendering Backend:** GLFW / OpenGL3
-- **Environment & Compiler:** VS Code / GCC (MinGW-w64)
+- **Language:** Python (v3.10+)
+- **Data Engine:** NumPy (Array manipulation and optimization)
+- **Database Backend:** MongoDB (using PyMongo driver)
+- **GUI Framework:** CustomTkinter (Modernized Tkinter extension)
+- **Development Environment:** VS Code
 
 ---
 
@@ -52,7 +54,10 @@ The core application state operates around two critical architectural entities:
 
 ```bash
 # Clone the repository
-git clone [https://github.com/your-username/ERPCalcPlusPlus.git](https://github.com/your-username/ERPCalcPlusPlus.git)
+git clone [https://github.com/your-username/ERPCalcPy.git](https://github.com/your-username/ERPCalcPy.git)
 
 # Navigate into the project folder
-cd ERPCalcPlusPlus
+cd ERPCalcPy
+
+# Install mandatory dependencies
+pip install customtkinter numpy pymongo
